@@ -159,18 +159,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Maze.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RenderedObject.h" />
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Maze.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="RenderedObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -181,7 +185,7 @@
     <Image Include="Assets\finish.jpg" />
     <Image Include="Assets\GameOver.jpg" />
     <Image Include="Assets\sprite.bmp" />
-    <Image Include="Assets\texture.bmp" />
+    <Image Include="Assets\mazeBlock.bmp" />
     <Image Include="directx.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +193,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Levels\config.txt" />
+    <Text Include="Levels\Level1.txt" />
+    <Text Include="Levels\Level2.txt" />
+    <Text Include="Levels\Level3.txt" />
+    <Text Include="Levels\Level4.txt" />
+    <Text Include="Levels\Level5.txt" />
+    <Text Include="Levels\Level6.txt" />
+    <Text Include="Levels\Level7.txt" />
+    <Text Include="Levels\Level8.txt" />
+    <Text Include="Levels\Level9.txt" />
+    <Text Include="Levels\LPit.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

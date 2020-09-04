@@ -13,10 +13,11 @@ using Microsoft::WRL::ComPtr;
 
 Game::Game() noexcept :
     m_window(nullptr),
-    m_outputWidth(800),
-    m_outputHeight(600),
+    m_outputWidth(1024),
+    m_outputHeight(768),
     m_featureLevel(D3D_FEATURE_LEVEL_9_1)
 {
+    _maze = make_unique<Maze>("Levels\\Level1.txt");
 }
 
 // Initialize the Direct3D resources required to run.
@@ -72,9 +73,7 @@ void Game::Render()
     // TODO: Add your rendering code here.
     m_spriteBatch->Begin();
 
-    m_spriteBatch->Draw(m_background.Get(), m_fullscreenRect);
-    m_spriteBatch->Draw(m_texture.Get(), m_screenPos, nullptr, Colors::White,
-        0.f, m_origin);
+    _maze->Render(m_spriteBatch.get());
 
     m_spriteBatch->End();
 
@@ -151,8 +150,8 @@ void Game::OnWindowSizeChanged(int width, int height)
 void Game::GetDefaultSize(int& width, int& height) const noexcept
 {
     // TODO: Change to desired default window size (note minimum size is 320x200).
-    width = 800;
-    height = 600;
+    width = 1024;
+    height = 768;
 }
 
 // These are the resources that depend on the device.
@@ -222,24 +221,7 @@ void Game::CreateDevice()
     // TODO: Initialize device dependent objects here (independent of window size).
     m_spriteBatch = std::make_unique<SpriteBatch>(m_d3dContext.Get());
 
-    ComPtr<ID3D11Resource> resource;
-    DX::ThrowIfFailed(
-        CreateWICTextureFromFile(m_d3dDevice.Get(), L"Assets/texture.bmp",
-            resource.GetAddressOf(),
-            m_texture.ReleaseAndGetAddressOf()));
-
-    ComPtr<ID3D11Texture2D> cat;
-    DX::ThrowIfFailed(resource.As(&cat));
-
-    CD3D11_TEXTURE2D_DESC catDesc;
-    cat->GetDesc(&catDesc);
-
-    m_origin.x = float(catDesc.Width / 2);
-    m_origin.y = float(catDesc.Height / 2);
-
-     DX::ThrowIfFailed(
-        CreateWICTextureFromFile(m_d3dDevice.Get(), L"Assets/AdvInAbat.jpg", nullptr,
-            m_background.ReleaseAndGetAddressOf()));
+     _maze->InitializeDeviceDependent(m_d3dDevice.Get());
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
@@ -347,8 +329,6 @@ void Game::CreateResources()
 void Game::OnDeviceLost()
 {
     // TODO: Add Direct3D resource cleanup here.
-    m_background.Reset();
-    m_texture.Reset();
     m_spriteBatch.reset();
 
     m_depthStencilView.Reset();

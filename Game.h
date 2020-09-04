@@ -5,6 +5,7 @@
 #pragma once
 
 #include "StepTimer.h"
+#include "maze.h"
 
 
 // A basic game implementation that creates a D3D11 device and
@@ -69,8 +70,6 @@ private:
 
     std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
     DirectX::SimpleMath::Vector2 m_screenPos;
-    DirectX::SimpleMath::Vector2 m_origin;
     RECT m_fullscreenRect;
-    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_background;
-    Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
+    std::unique_ptr<Maze> _maze;
 };

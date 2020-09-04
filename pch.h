@@ -40,6 +40,7 @@
 #include <exception>
 #include <memory>
 #include <stdexcept>
+#include <list>
 
 #include "SimpleMath.h"
 #include "SpriteBatch.h"

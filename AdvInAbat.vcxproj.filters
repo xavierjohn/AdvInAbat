@@ -5,16 +5,23 @@
       <UniqueIdentifier>009d4d9f-ada9-4b92-aad7-1bb5d20efbbc</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dds;dlg;fbx;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Levels">
+      <UniqueIdentifier>{388cef2e-c396-4b6c-bc86-07db18c2d085}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="StepTimer.h" />
+    <ClInclude Include="RenderedObject.h" />
+    <ClInclude Include="Maze.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RenderedObject.cpp" />
+    <ClCompile Include="Maze.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -38,7 +45,7 @@
     <Image Include="Assets\sprite.bmp">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\texture.bmp">
+    <Image Include="Assets\mazeBlock.bmp">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -49,5 +56,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Levels\config.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level1.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level2.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level3.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level4.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level5.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level6.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level7.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level8.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\Level9.txt">
+      <Filter>Levels</Filter>
+    </Text>
+    <Text Include="Levels\LPit.txt">
+      <Filter>Levels</Filter>
+    </Text>
   </ItemGroup>
 </Project>
