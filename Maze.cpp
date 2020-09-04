@@ -18,6 +18,7 @@ Maze::Maze(string filename)
 
 	ReadHorizontalLines(mazeLayout);
 	ReadVerticalLines(mazeLayout);
+	ReadDeploymentPoints(mazeLayout);
 }
 
 void Maze::ReadHorizontalLines(fstream& mazeLayout)
@@ -39,6 +40,17 @@ void Maze::ReadVerticalLines(fstream& mazeLayout)
 		MazeLine mazeLine;
 		mazeLayout >> mazeLine.Column >> mazeLine.RowStart >> mazeLine.RowEnd;
 		_verticalLines.push_back(mazeLine);
+	}
+}
+
+void Maze::ReadDeploymentPoints(fstream& mazeLayout)
+{
+	long deploymentPoints;
+	mazeLayout >> deploymentPoints;
+	for (int i = 0; i < deploymentPoints; i++) {
+		POINT deploymentPoint;
+		mazeLayout >> deploymentPoint.x >> deploymentPoint.y;
+		_deployPoints.push_back(deploymentPoint);
 	}
 }
 

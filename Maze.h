@@ -40,5 +40,6 @@ private:
 
 	void ReadHorizontalLines(fstream& mazeLayout);
 	void ReadVerticalLines(fstream& mazeLayout);
+	void ReadDeploymentPoints(fstream& mazeLayout);
 };
 
